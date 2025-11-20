@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: simulador-config
+data:
+  application.yml: |
+    app:
+      message: "Hola desde ConfigMap Gluon"

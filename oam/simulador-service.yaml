@@ -1,0 +1,24 @@
+apiVersion: core.oam.dev/v1alpha2
+kind: Component
+metadata:
+  name: simulador-service
+spec:
+  workload:
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: simulador-service
+    spec:
+      replicas: 1
+      template:
+        spec:
+          containers:
+            - name: simulador
+              image: beautiful_gagarin/tu-org/simulador:latest
+              ports:
+                - containerPort: 8080
+              envFrom:
+                - configMapRef:
+                    name: simulador-config
+                - secretRef:
+                    name: simulador-db-secret

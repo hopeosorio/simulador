@@ -1,0 +1,10 @@
+apiVersion: core.oam.dev/v1alpha2
+kind: ApplicationConfiguration
+metadata:
+  name: simulador-app
+spec:
+  components:
+    - componentName: simulador-service
+      parameterValues:
+        - name: ENV
+          value: DEV
